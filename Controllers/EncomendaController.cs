@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using CadastroEncomenda.Models;
 
 namespace CadastroEncomenda.Controllers
@@ -12,7 +13,11 @@ namespace CadastroEncomenda.Controllers
 
         public ActionResult Index()
         {
-            return View(_encomenda.listaEncomendas);
+            var encomendas = from e in _encomenda.listaEncomendas
+                             select e;
+
+            encomendas = encomendas.OrderByDescending(e => e.Frete);
+            return View(encomendas);
         }
 
         public ActionResult AdicionaEncomenda()
