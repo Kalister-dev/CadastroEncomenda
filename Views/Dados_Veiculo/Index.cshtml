@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CadastroEncomenda.Models.Dados_VeiculoModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de veiculos</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Veiculo para transporte", "AdicionaDados_Veiculo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacidade)
+        </td>
+        <td>
+            @Html.ActionLink("Calcular", "Calcular", new { id=item.Capacidade }) |
+           
+        </td>
+    </tr>
+}
+
+</table>

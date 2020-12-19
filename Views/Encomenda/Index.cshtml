@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CadastroEncomenda.Models.EncomendaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Lista de encomendas</h2>
+
+<p>
+    @Html.ActionLink("Criar Encomenda", "AdicionaEncomenda")
+
+</p>
+<table class="table">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Id)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frete)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frete)
+            </td>
+           
+        </tr>
+    }
+
+</table>
